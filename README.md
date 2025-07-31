@@ -50,14 +50,12 @@
 
 <p><strong> Install Dependencies</strong></p>
 
-```bash
 pip install requests
 <p><strong> Run the Script</strong></p>
-bash
-Copy
-Edit
+
 python weather_forecast.py
 <h2>📸 Screenshot</h2> <p align="center"> <img src="screenshot.png" width="400" alt="Weather App Screenshot"/> </p>
+
 <h2> Technologies Used</h2>
 <ul>
  <li> Python 3</li>
@@ -65,4 +63,5 @@ python weather_forecast.py
 <li> requests — For API calls</li>
 <li> OpenWeather API — Real-time weather data</li>
  </ul>
+ 
 <h3>👨‍💻 Author</h3> <p>Made by Youssef Talaat</p>
