@@ -1,0 +1,97 @@
+import tkinter as tk
+import requests
+
+# === API Setup ===
+API_KEY = "280fd12e249abcd15a0d82cfb4e33161"
+API_URL = "http://api.openweathermap.org/data/2.5/weather"
+
+# === Function to Get Weather ===
+def get_weather():
+    city = city_entry.get().strip()
+
+    if city == "":
+        clear_labels()
+        return
+
+    params = {
+        "q": city,
+        "appid": API_KEY,
+        "units": "metric"
+    }
+
+    try:
+        response = requests.get(API_URL, params=params)
+        data = response.json()
+
+        if data.get("cod") != 200:
+            clear_labels()
+            return
+
+        # Extract values from the API response
+        temperature = data["main"]["temp"]
+        humidity = data["main"]["humidity"]
+        wind_speed = data["wind"]["speed"]
+        pressure = data["main"]["pressure"]
+        precipitation = data["weather"][0]["main"]
+
+        # Update labels
+        temperature_label.config(text=f"Temperature: {temperature}°C")
+        humidity_label.config(text=f"Humidity: {humidity}%")
+        wind_label.config(text=f"Wind Speed: {wind_speed} km/h")
+        pressure_label.config(text=f"Pressure: {pressure} hPa")
+        precipitation_label.config(text=f"Precipitation: {precipitation}")
+
+    except Exception as e:
+        print("Error:", e)
+        clear_labels()
+
+# === Clear Labels if City is Invalid or Empty ===
+def clear_labels():
+    temperature_label.config(text="Temperature: —")
+    humidity_label.config(text="Humidity: —")
+    wind_label.config(text="Wind Speed: —")
+    pressure_label.config(text="Pressure: —")
+    precipitation_label.config(text="Precipitation: —")
+
+# === GUI Setup ===
+window = tk.Tk()
+window.title("Weather Forecast")
+window.geometry("400x300")
+window.resizable(False, False)
+window.config(bg="#f0f8ff")
+
+# === Title ===
+title = tk.Label(window, text="🌦️ Weather Forecast App", font=("Arial", 18, "bold"), bg="#f0f8ff")
+title.pack(pady=10)
+
+# === Input Area ===
+input_frame = tk.Frame(window, bg="#f0f8ff")
+input_frame.pack(pady=5)
+
+city_entry = tk.Entry(input_frame, font=("Arial", 12), width=25)
+city_entry.pack(side=tk.LEFT, padx=5)
+
+search_button = tk.Button(input_frame, text="Search", font=("Arial", 12), command=get_weather)
+search_button.pack(side=tk.LEFT)
+
+# === Result Area ===
+result_frame = tk.Frame(window, bg="#f0f8ff")
+result_frame.pack(pady=20)
+
+temperature_label = tk.Label(result_frame, text="Temperature: —", font=("Arial", 12), bg="#f0f8ff")
+temperature_label.pack(anchor="w")
+
+humidity_label = tk.Label(result_frame, text="Humidity: —", font=("Arial", 12), bg="#f0f8ff")
+humidity_label.pack(anchor="w")
+
+wind_label = tk.Label(result_frame, text="Wind Speed: —", font=("Arial", 12), bg="#f0f8ff")
+wind_label.pack(anchor="w")
+
+pressure_label = tk.Label(result_frame, text="Pressure: —", font=("Arial", 12), bg="#f0f8ff")
+pressure_label.pack(anchor="w")
+
+precipitation_label = tk.Label(result_frame, text="Precipitation: —", font=("Arial", 12), bg="#f0f8ff")
+precipitation_label.pack(anchor="w")
+
+# === Start GUI ===
+window.mainloop()
