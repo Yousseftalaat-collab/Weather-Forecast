@@ -5,10 +5,9 @@
   Made with <strong>Python</strong> and <strong>Tkinter</strong> — ideal for beginners!
 </p>
 
-<p align="center">
-  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWdkamVvaWhiODg2dW1oajdjZnJwaHNoNHBwazU0MWd5ZTVsZGMzbyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/bGgsc5mWoryfgKBx1u/giphy.gif" width="300" alt="Weather GIF"/>
-</p>
 
+python weather_forecast.py
+<h2>📸 Screenshot</h2> <p align="center"> <img src="screenshot.png" width="400" alt="Weather App Screenshot"/> </p>
 ---
 
 <h2>🌐 Features</h2>
@@ -53,8 +52,7 @@
 pip install requests
 <p><strong> Run the Script</strong></p>
 
-python weather_forecast.py
-<h2>📸 Screenshot</h2> <p align="center"> <img src="screenshot.png" width="400" alt="Weather App Screenshot"/> </p>
+
 
 <h2> Technologies Used</h2>
 <ul>
