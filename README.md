@@ -7,7 +7,7 @@
 
 
 python weather_forecast.py
-<h2>📸 Screenshot</h2>  <p align="center"><img src="screenshot.png" width="400" alt="Weather App Screenshot"/> </p>
+<h2>📸 Screenshot</h2>  <p align="center"><img src="Screenshot.png" width="400" alt="Weather App Screenshot"/> </p>
 ---
 
 <h2>🌐 Features</h2>
